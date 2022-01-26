@@ -1,0 +1,54 @@
+﻿@model CarX.Data.Dto.PasswordUpdateDto
+
+<form method="post" asp-action="Deactivate">
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Change Password</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                @* Keep empty *@
+            </div>
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label asp-for="NewPassword"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input asp-for="NewPassword" class="form-control" />
+                        <span asp-validation-for="NewPassword" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label asp-for="ConfirmPassword"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input asp-for="ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-6 mb-1">
+                        <input type="submit" name="submit" value="Delete Account" class="btn btn-danger w-100" />
+                    </div>
+                    <div class="col-md-6 mb-1">
+                        <a asp-action="Index" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i>Back</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                @* Keep empty *@
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

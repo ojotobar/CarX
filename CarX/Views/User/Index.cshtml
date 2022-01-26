@@ -1,0 +1,43 @@
+﻿@model CarX.Models.AppUser;
+
+<div class="container">
+    <div class="border p-3">
+        <div class="row">
+            <h2 class="text-info pl-3">Profile</h2>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-3">@*Keep empty*@</div>
+            <div class="col-md-6">
+                <div class="row d-flex justify-content-center border" style="min-height: 200px;">
+                    <div class="col-md-6">
+                        <img src="@Model.ImageUrl" style="width:100%;" class="img-thumbnail img-fluid" alt="@Model.FirstName @Model.LastName">
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item font-weight-bolder text-wrap">@Model.FirstName @Model.LastName</li>
+                            <li class="list-group-item text-muted font-weight-bolder text-wrap">@Model.Email</li>
+                            <li class="list-group-item text-wrap font-weight-bolder">@Model.PhoneNumber</li>
+                            <li class="list-group-item text-wrap font-weight-bolder">@Model.SignUpDate</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div>
+                    <a asp-controller="User" asp-route-Id="@Model.Id" asp-action="EditProfile" class="text-info"><i class="fas fa-user-edit"></i></a>
+                </div>
+                <div>
+                    <a asp-controller="User" asp-route-Id="@Model.Id" asp-action="ChangeImage" class="text-info">Change Picture</a>
+                </div>
+                <div>
+                    <a asp-controller="User" asp-route-Id="@Model.Id" asp-action="ChangePassword" class="text-info">Change Password</a>
+                </div>
+                <div>
+                    <a asp-controller="User" asp-route-Id="@Model.Id" asp-action="Deactivate" class="text-danger">Delete Account</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
