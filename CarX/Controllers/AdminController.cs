@@ -2,8 +2,13 @@
 using CarX.Data.Dto;
 using CarX.Models;
 using CarX.Utilities;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +21,15 @@ namespace CarX.Controllers
         private readonly AppDbcontext ctx;
         private readonly UserManager<AppUser> userMgr;
         private readonly SignInManager<AppUser> signInMgr;
+        private readonly Cloudinary cloud;
 
-        public AdminController(AppDbcontext ctx, UserManager<AppUser> userMgr, SignInManager<AppUser> signInMgr)
+        public AdminController(AppDbcontext ctx, UserManager<AppUser> userMgr, SignInManager<AppUser> signInMgr, IOptions<CloudinarySettings> config)
         {
             this.ctx = ctx;
             this.userMgr = userMgr;
             this.signInMgr = signInMgr;
+            var account = new Account(config.Value.CloudName, config.Value.ApiKey, config.Value.ApiSecret);
+            cloud = new Cloudinary(account);
         }
         public IActionResult Index()
         {
@@ -101,6 +109,96 @@ namespace CarX.Controllers
         {
             IEnumerable<Car> carList = ctx.Car;
             return View(carList);
+        }
+
+        public IActionResult EditCar(string id)
+        {
+            var car = ctx.Car.FirstOrDefault(x => x.Id == id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+            var carToUpdate = Mapper.MapCarToUpdate(car);
+            return View(carToUpdate);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditCar(CarToUpdateVM vm)
+        {
+            var car = await ctx.Car.FirstOrDefaultAsync(x => x.Id == vm.Id);
+            if (car == null)
+            {
+                ViewBag.HasErrors = true;
+                ViewBag.Error = "No such car exists";
+                return View(vm);
+            }
+
+            var result = UploadPhoto(vm.Image);
+            var status = result.StatusCode.ToString();
+            if (status.Equals("OK"))
+            {
+                var newCar = Mapper.MapCar(vm, car, result.Url.ToString());
+                ctx.Update(newCar);
+                var res = await ctx.SaveChangesAsync();
+                if (res > 0)
+                {
+                    return RedirectToAction("Cars");
+                }
+                ViewBag.HasErrors = true;
+                ViewBag.Error = "Update failed. Try again!";
+                return View(vm);
+            }
+            ViewBag.HasErrors = true;
+            ViewBag.Error = "Something went wrong. Try again";
+            return View(vm);
+        }
+
+        public IActionResult DeleteCar(string id)
+        {
+            var car = ctx.Car.FirstOrDefault(x => x.Id == id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+            return View(car);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteCar(Car car)
+        {
+            var carToDelete = await ctx.Car.FirstOrDefaultAsync(x => x.Id == car.Id);
+            if (carToDelete == null)
+            {
+                return NotFound();
+            }
+            ctx.Car.Remove(carToDelete);
+            var res = await ctx.SaveChangesAsync();
+            if (res > 0)
+            {
+                return RedirectToAction("Cars");
+            }
+            ViewBag.HasErrors = true;
+            ViewBag.Error = "Removal operation failed. Try again";
+            return View(car);
+        }
+
+        public ImageUploadResult UploadPhoto(IFormFile file)
+        {
+            var uploadResult = new ImageUploadResult();
+
+            using (var stream = file.OpenReadStream())
+            {
+                var imageUploadParams = new ImageUploadParams
+                {
+                    File = new FileDescription(file.FileName, stream),
+                    Transformation = new Transformation()
+                };
+                uploadResult = cloud.Upload(imageUploadParams);
+            }
+
+            return uploadResult;
         }
     }
 }

@@ -165,3 +165,5 @@ C:\Users\hp\source\repos\CarX\CarX\obj\Debug\net5.0\Razor\Views\Admin\Index.csht
 C:\Users\hp\source\repos\CarX\CarX\obj\Debug\net5.0\Razor\Views\Admin\Cars.cshtml.g.cs
 C:\Users\hp\source\repos\CarX\CarX\obj\Debug\net5.0\Razor\Views\Admin\EditUser.cshtml.g.cs
 C:\Users\hp\source\repos\CarX\CarX\obj\Debug\net5.0\Razor\Views\Admin\DeleteUser.cshtml.g.cs
+C:\Users\hp\source\repos\CarX\CarX\obj\Debug\net5.0\Razor\Views\Admin\EditCar.cshtml.g.cs
+C:\Users\hp\source\repos\CarX\CarX\obj\Debug\net5.0\Razor\Views\Admin\DeleteCar.cshtml.g.cs
