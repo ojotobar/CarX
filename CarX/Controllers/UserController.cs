@@ -164,7 +164,7 @@ namespace CarX.Controllers
 
         public async Task<IActionResult> ChangePassword(string id)
         {
-            if (id == null || id == "")
+            if (id == null)
             {
                 return NotFound();
             }

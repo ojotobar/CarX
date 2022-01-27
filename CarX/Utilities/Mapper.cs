@@ -74,5 +74,64 @@ namespace CarX.Utilities
                 SignUpDate = user.SignUpDate
             };
         }
+
+        public static CarToUpdateVM MapCarToUpdate(Car car)
+        {
+            return new CarToUpdateVM
+            {
+                Id = car.Id,
+                Make = car.Make,
+                Model = car.Make,
+                DriveTrain = car.DriveTrain,
+                Trim = car.Trim,
+                Odometer = car.Odometer,
+                Color = car.Color,
+                Interior = car.Interior,
+                Engine = car.Engine,
+                Year = car.Year,
+                Price = car.Price,
+                Transmission = car.Transmission,
+                Vin = car.Vin
+            };
+        }
+
+        public static Car MapCar(CarToUpdateVM model, Car car, string imageUrl)
+        {
+            car.Make = model.Make;
+            car.Model = model.Make;
+            car.DriveTrain = model.DriveTrain;
+            car.Trim = model.Trim;
+            car.Odometer = model.Odometer;
+            car.Color = model.Color;
+            car.Interior = model.Interior;
+            car.Engine = model.Engine;
+            car.Year = model.Year;
+            car.Price = model.Price;
+            car.Transmission = model.Transmission;
+            car.Vin = model.Vin;
+            car.Image = imageUrl;
+
+            return car;
+        }
+
+        public static Car MapCarToAdd(AddCarDto vm, string imgUrl)
+        {
+            return new Car
+            {
+                Make = vm.Make,
+                Model = vm.CarModel,
+                Trim = vm.Trim,
+                Year = vm.Year,
+                DriveTrain = vm.DriveTrain,
+                Color = vm.Color,
+                Interior = vm.Interior,
+                Engine = vm.Engine,
+                Price = vm.Price,
+                Transmission = vm.Transmission,
+                Vin = vm.Vin,
+                Odometer = vm.Mileage,
+                Image = imgUrl
+            };
+        }
     }
 }

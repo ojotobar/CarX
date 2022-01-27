@@ -2,15 +2,20 @@
 
 <div class="container p-3">
     <div class="row">
-        <div class="col-md-4 mt-4">
-
+        <div class="col-md-4 p-3 border">
+            <div class="col-6 text-right">
+                <a asp-controller="Admin" asp-action="AddCar" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> &nbsp; Add Car
+                </a>
+            </div>
         </div>
-        <div class="col-md-8 p-3 text-dark">
+        <div class="col-md-8 p-3 text-dark border">
+            
             @if (Model.Count() > 0)
             {
                 @foreach (var car in Model)
                 {
-                    <div class="row m-2" style="background: #fefefe; border: 2px solid #222; border-radius: 5px">
+                    <div class="row m-2" style="background: #fefefe;border: 2px solid #1861ac; border-radius: 5px">
                         <div class="col-sm-6 p-3">
                             <img src="@car.Image" style="width:100%" class="rounded" alt="@car.Make @car.Model">
                         </div>
@@ -25,13 +30,20 @@
                                 <p>@car.DriveTrain</p>
                             </div>
                             <div class="d-flex text-muted justify-content-between m-0">
-                                <p>@car.Color <div style="border: 1px solid black;padding:10px;height:50%;border-radius:50%;background:@car.Color"></div></p>
-                                <p>@car.Interior (Int.) <div style="border: 1px solid black;padding:10px;height:50%;border-radius:50%;background:@car.Interior"></div></p>
+                                <p>Ext. <div style="border: 1px solid black;padding:10px;height:50%;border-radius:50%;background:@car.Color"></div></p>
+                                <p>Int. <div style="border: 1px solid black;padding:10px;height:50%;border-radius:50%;background:@car.Interior"></div></p>
                                 <small class="text-muted float-right">@String.Format("{0:N0}", car.Odometer) miles</small>
                             </div>
                             <div class="d-flex text-muted justify-content-between font-weight-bolder text-primary m-0">
                                 <p>₦@String.Format("{0:N2}", car.Price)</p>
-                                <button class="btn btn-info my-btn">Buy Now</button>
+                                <div class="btn-group m-1" role="group">
+                                    <a asp-controller="Admin" asp-route-Id="@car.Id" asp-action="EditCar" class="btn btn-primary mx-1">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a asp-controller="Admin" asp-route-Id="@car.Id" asp-action="DeleteCar" class="btn btn-danger mx-1">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
