@@ -2,15 +2,15 @@
 
 <div class="container p-3">
     <div class="row">
-        <div class="col-md-4 mt-4">
+        <div class="col-md-4 p-3 border">
 
         </div>
-        <div class="col-md-8 p-3 text-dark">
+        <div class="col-md-8 p-3 text-dark border">
             @if (Model.Count() > 0)
             {
                 @foreach (var car in Model)
                 {
-                    <div class="row m-2" style="background: #fefefe; border: 2px solid #222; border-radius: 5px">
+                    <div class="row m-2" style="background: #fefefe; border: 2px solid #1861ac; border-radius: 5px">
                         <div class="col-sm-6 p-3">
                             <img src="@car.Image" style="width:100%" class="rounded" alt="@car.Make @car.Model">
                         </div>

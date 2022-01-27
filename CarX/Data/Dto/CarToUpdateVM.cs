@@ -32,7 +32,6 @@ namespace CarX.Data.Dto
         [Required]
         public float Price { get; set; }//price
         public string Vin { get; set; }//vin
-        [Required]
         public IFormFile Image { get; set; }//img
     }
 }

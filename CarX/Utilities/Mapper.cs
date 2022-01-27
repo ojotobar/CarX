@@ -113,5 +113,25 @@ namespace CarX.Utilities
 
             return car;
         }
+
+        public static Car MapCarToAdd(AddCarDto vm, string imgUrl)
+        {
+            return new Car
+            {
+                Make = vm.Make,
+                Model = vm.CarModel,
+                Trim = vm.Trim,
+                Year = vm.Year,
+                DriveTrain = vm.DriveTrain,
+                Color = vm.Color,
+                Interior = vm.Interior,
+                Engine = vm.Engine,
+                Price = vm.Price,
+                Transmission = vm.Transmission,
+                Vin = vm.Vin,
+                Odometer = vm.Mileage,
+                Image = imgUrl
+            };
+        }
     }
 }

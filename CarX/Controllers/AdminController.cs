@@ -134,21 +134,24 @@ namespace CarX.Controllers
                 return View(vm);
             }
 
-            var result = UploadPhoto(vm.Image);
-            var status = result.StatusCode.ToString();
-            if (status.Equals("OK"))
+            var imgUrl = car.Image;
+            if (vm.Image.Length > 0)
             {
-                var newCar = Mapper.MapCar(vm, car, result.Url.ToString());
-                ctx.Update(newCar);
-                var res = await ctx.SaveChangesAsync();
-                if (res > 0)
+                var result = UploadPhoto(vm.Image);
+                var status = result.StatusCode.ToString();
+                if (status.Equals("OK"))
                 {
-                    return RedirectToAction("Cars");
+                    imgUrl = result.Url.ToString();
                 }
-                ViewBag.HasErrors = true;
-                ViewBag.Error = "Update failed. Try again!";
-                return View(vm);
             }
+            var newCar = Mapper.MapCar(vm, car, imgUrl);
+            ctx.Update(newCar);
+            var res = await ctx.SaveChangesAsync();
+            if (res > 0)
+            {
+                return RedirectToAction("Cars");
+            }
+            
             ViewBag.HasErrors = true;
             ViewBag.Error = "Something went wrong. Try again";
             return View(vm);
@@ -182,6 +185,33 @@ namespace CarX.Controllers
             ViewBag.HasErrors = true;
             ViewBag.Error = "Removal operation failed. Try again";
             return View(car);
+        }
+
+        public IActionResult AddCar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddCar(AddCarDto model)
+        {
+            if (model.Image.Length > 0)
+            {
+                var uploadResult = UploadPhoto(model.Image);
+                var status = uploadResult.StatusCode.ToString();
+                if (status.Equals("OK"))
+                {
+                    var car = Mapper.MapCarToAdd(model, uploadResult.Url.ToString());
+                    ctx.Add(car);
+                    ctx.SaveChanges();
+                    return RedirectToAction("Cars");
+                }
+
+                return View(model);
+            }
+
+            return View(model);
         }
 
         public ImageUploadResult UploadPhoto(IFormFile file)
