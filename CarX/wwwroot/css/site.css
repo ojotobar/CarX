@@ -40,6 +40,76 @@ a {
     background: #060339;
     transform: translate(1.1, 1.1);
 }
+/* Services section styles*/
+.card {
+    border: none;
+    outline: none;
+}
+
+.card p {
+    color: gray;
+    -webkit-box-shadow: -8px 6px 89px -65px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -8px 6px 89px -65px rgba(0, 0, 0, 0.75);
+    box-shadow: -8px 6px 89px -65px rgba(0, 0, 0, 0.75);
+}
+
+.circle {
+    height: 70px;
+    width: 70px;
+    background-color: lightgrey;
+    color: black;
+    padding: 12px;
+    font-size: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.card:hover .circle {
+    background-color: #1861ac;
+    color: white;
+    transition: 0.5s;
+}
+
+/* About section styles*/
+.about img {
+    -webkit-box-shadow: 6px 4px 41px -24px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 6px 4px 41px -24px rgba(0, 0, 0, 0.75);
+    box-shadow: 6px 4px 41px -24px rgba(0, 0, 0, 0.75);
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+/* contact section styles*/
+.circle:hover {
+    background-color: #1861ac;
+    transition: 0.4s;
+    color: white;
+}
+
+.contact .btn3 {
+    background-color: #1861ac;
+    color: white;
+    outline: none;
+    border: none;
+    height: 40px;
+    width: 140px;
+    border-radius: 4px;
+}
+
+.btn3:hover {
+    background: transparent;
+    color: #1861ac;
+    transition: 0.4s;
+    border: 2px solid #1861ac;
+}
+
+.circle a i:hover {
+    color: white;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -81,9 +151,11 @@ body {
     background: #fefefe;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    background-color: #1861ac;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
 }

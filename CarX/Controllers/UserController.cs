@@ -8,12 +8,10 @@ using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace CarX.Controllers
 {
@@ -64,7 +62,8 @@ namespace CarX.Controllers
                 ViewBag.Error = "User not found";
                 return View(dto);
             }
-
+            await userMgr.AddClaimAsync(user, new System.Security.Claims.Claim("photo", $"{user.ImageUrl}"));
+            await userMgr.AddClaimAsync(user, new System.Security.Claims.Claim("fullname", $"{user.FirstName} {user.LastName}"));
             var pass = await signInMgr.PasswordSignInAsync(user, dto.Password, dto.RememberMe, false);
             if (!pass.Succeeded)
             {
@@ -72,10 +71,10 @@ namespace CarX.Controllers
             }
 
             var roles = await userMgr.GetRolesAsync(user);
+            ViewBag.LoggedInUserImage = user.ImageUrl;
             //return to home view
             return RedirectToAction("Index", "Home");
         }
-
 
         public async Task<IActionResult> Logout()
         {

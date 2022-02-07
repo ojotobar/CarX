@@ -1,7 +1,16 @@
-﻿
-@{
-    ViewData["Title"] = "About";
-}
+﻿@model List<CarX.Models.About>
+<section class="about py-5">
+    <div class="container py-5"  >
+        <div class="row">
+            <div class="col-lg-5">
+                <img src="@Model[0].ImgUrl" class="img-fluid" alt="car"/>
+            </div>
 
-<h1>About</h1>
-
+            <div class="col-lg-7 pt-3">
+                <h1>About Us</h1>
+                 <p class="text-muted font-weight-bold" style="text-transform:capitalize;">@Model[0].Title</p>
+                <p class="py-1">@Model[0].Details</p>
+            </div>
+        </div>
+    </div>
+</section>

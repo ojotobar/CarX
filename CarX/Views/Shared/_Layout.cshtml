@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light text-white border-bottom box-shadow mb-5">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark text-white border-bottom box-shadow mb-5">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="https://res.cloudinary.com/enigmatr/image/upload/v1642992551/29052021-01_generated_qvcfmi.jpg" alt="CarX Logo" style="width:50px;height:50px;border-radius:50%;"/></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -22,7 +22,11 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="User" asp-action="Index"><i class="fa fa-user" aria-hidden="true"></i></a>
+                                @{
+                                    var photo = User.Claims.FirstOrDefault(x => x.Type.ToLower() == "photo")?.Value;
+                                }
+
+                                <a class="nav-link text-white" asp-area="" asp-controller="User" asp-action="Index"><img src="@photo" style="border-radius:50%;width:30px;height:30px;background:black;" /></a>
                             </li>
                         }
                         <li class="nav-item">
@@ -33,6 +37,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
                         </li>
                         @{
                             if (!User.Identity.IsAuthenticated)
@@ -48,12 +55,20 @@
                             {
                                 if (User.IsInRole("admin"))
                                 {
-                                    <li class="nav-item">
-                                        <a class="nav-link text-white" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+                                    <li class="dropdown">
+                                        <button class="text-white font-weight-bold btn dropdown-toggle" type="button" data-toggle="dropdown" style="text-transform:uppercase;">
+                                            Admin
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" style="background:#1861ac;">
+                                            <li class="text-white nav-item" style="padding-left:5px;"><a class="nav-link text-white" asp-area="" asp-controller="Admin" asp-action="Index">Users</a></li>
+                                            <li class="text-white nav-item" style="padding-left:5px;"><a class="nav-link text-white" asp-area="" asp-controller="Admin" asp-action="Cars">Cars</a></li>
+                                            <li class="text-white nav-item" style="padding-left:5px;"><a class="nav-link text-white" asp-area="" asp-controller="Admin" asp-action="About">About</a></li>
+                                            <li class="text-white nav-item" style="padding-left:5px;"><a class="nav-link text-white" asp-area="" asp-controller="Admin" asp-action="Services">Services</a></li>
+                                            <li class="text-white nav-item" style="padding-left:5px;"><a class="nav-link text-white" asp-area="" asp-controller="Admin" asp-action="Contact">Contact</a></li>
+                                        </ul>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-white" asp-area="" asp-controller="Admin" asp-action="Cars">Cars</a>
-                                    </li>
+                                    
                                 }
                                 <li class="nav-item">
                                     <a class="nav-link text-white" asp-area="" asp-controller="User" asp-action="Logout">Logout</a>
@@ -70,11 +85,16 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - CarX - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+    <footer class="border-top footer text-white d-flex p-2 m-0 row">
+        <div class="col-md-5">
+            &copy; 2022 - CarX - <a asp-area="" asp-controller="Home" class="text-white" asp-action="Privacy">Privacy</a>
+        </div>  
+        <div class="d-flex justify-content-around col-md-7" style="font-size: 30px;">
+            <a href="https://www.facebook.com/toba.ojo1" class="text-white"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/in/toba-ojo-13439490" class="text-white"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/ojotobar" class="text-white"><i class="fab fa-instagram"></i></a>
+            <a href=" https://wa.me/2348035222858" class="text-white"><i class="fab fa-whatsapp"></i></a>
+        </div>        
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

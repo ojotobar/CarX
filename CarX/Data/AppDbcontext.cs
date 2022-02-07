@@ -15,6 +15,8 @@ namespace CarX.Data
         }
 
         public DbSet<Car> Car { get; set; }
-        public object AppUser { get; internal set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<About> About { get; set; }
     }
 }

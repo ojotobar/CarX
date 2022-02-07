@@ -45,8 +45,8 @@ namespace CarX
 
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddScoped<IJwtService, JwtService>();
-            services.AddTransient<Seeder>(); 
-            
+            services.AddTransient<Seeder>();
+
             services.AddControllersWithViews();
 
             services.AddAuthentication().AddCookie();
@@ -67,7 +67,6 @@ namespace CarX
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();

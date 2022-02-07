@@ -1,0 +1,122 @@
+﻿@model CarX.Data.Dto.CarToSellVM;
+
+<div class="container p-3">
+
+    <div class="row">
+        <div class="col-md-6 p-3 border">
+
+            <div class="row m-2" style="background: #fefefe; border: 2px solid #1861ac; border-radius: 5px">
+                <div class="col-sm-6 p-3">
+                    <img src="@Model.ImageUrl" style="width:100%" class="rounded" alt="@Model.Make @Model.Model">
+                </div>
+                <div class="col-sm-6 p-2">
+                    <div class="font-weight-bolder pt-2 m-0">
+                        @Model.Year @Model.Make @Model.Model @Model.Trim
+                    </div>
+
+                    <div class="text-muted d-flex justify-content-between m-0">
+                        <p>@Model.Transmission</p>
+                        <p>@Model.Engine</p>
+                        <p>@Model.DriveTrain</p>
+                    </div>
+
+                    <div class="d-flex text-muted justify-content-between m-0">
+                        <p>Ext. <div style="border: 1px solid black;padding:10px;height:50%;border-radius:50%;background:@Model.Color"></div></p>
+                        <p>Int. <div style="border: 1px solid black;padding:10px;height:50%;border-radius:50%;background:@Model.Interior"></div></p>
+                        <small class="text-muted float-right">@String.Format("{0:N0}", Model.Odometer) miles</small>
+                    </div>
+
+                    <div class="d-flex text-muted justify-content-between m-0">VIN: @Model.Vin</div>
+                    </div>
+                </div>
+
+        </div>
+
+        <div class="col-md-6 p-3 border">
+            <div class="row">
+                <div class="col-md-1">
+
+                </div>
+
+                <div class="col-md-10" style="height:auto;width:100%;border-radius:2px; border: 2px solid #ccc;">
+
+                    <div class="row mt-2">
+                        <div class="col-5">
+                            <div class="col">
+                                <label asp-for="FullName"></label>
+                            </div>
+                            <div class="col">
+                                <input asp-for="FullName" class="form-control" />
+                                <span asp-validation-for="FullName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <div class="col">
+                                <label asp-for="Email"></label>
+                            </div>
+                            <div class="col">
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col mt-1">
+                        <div class="col">
+                            <label asp-for="PayCardNumber"></label>
+                        </div>
+                        <div class="col">
+                            <input asp-for="PayCardNumber" class="form-control" />
+                            <span asp-validation-for="PayCardNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-4">
+                            <div class="col">
+                                <label asp-for="ExpiryMonth"></label>
+                            </div>
+                            <div class="col">
+                                <input asp-for="ExpiryMonth" class="form-control" />
+                                <span asp-validation-for="ExpiryMonth" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-4">
+                            <div class="col">
+                                <label asp-for="ExpiryYear"></label>
+                            </div>
+                            <div class="col">
+                                <input asp-for="ExpiryYear" class="form-control" />
+                                <span asp-validation-for="ExpiryYear" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-4">
+                            <div class="col">
+                                <label asp-for="CVV"></label>
+                            </div>
+                            <div class="col">
+                                <input asp-for="CVV" class="form-control" />
+                                <span asp-validation-for="CVV" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    
+                </div>
+
+                <div class="col-md-1">
+
+                </div>
+
+            </div>
+
+            <div class="d-flex text-muted justify-content-around font-weight-bolder text-primary m-3">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-info my-btn">Buy For ₦@String.Format("{0:N2}", Model.Price)</a>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-info my-btn w-25">Back</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
