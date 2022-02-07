@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CarX.Models.Contact>;
+<section class="contact py-5">
+    <div class="container py-5">
+        <h1 class="text-center">Contact Us</h1>
+        <div class="row py-5">
+            @if (Model.Count() > 0)
+            {
+                @foreach (var contact in Model)
+                {
+                    <div class="col-lg-10 mx-auto">
+                        <div class="row text-center">
+                            <div class="col-lg-4">
+                                <div class="circle">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <h5>Address</h5>
+                                <p>@contact.Address</p>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="circle">
+                                    <a href="mailto:@contact.Email" class="text-dark" style="text-decoration:none;"><i class="fas fa-envelope"></i></a>
+                                </div>
+                                <h5>Email </h5>
+                                <p>@contact.Email</p>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="circle">
+                                    <a href="tel:@contact.Phone" class="text-dark" style="text-decoration:none;"><i class="fas fa-phone"></i></a>
+                                </div>
+                                <h5>Phone </h5>
+                                <p>@contact.Phone</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p></p>
+            }
+        </div>
+
+        @*Forms area*@
+        <!--{ 
+            var loggedInUserFullName = User.Claims.FirstOrDefault(x => x.Type.ToLower() == "fullname")?.Value;
+            var email = User.Identity.Name.ToString();
+        }-->
+        <div class="row">
+            <div class="col-lg-9 mx-auto">
+                <form action="https://formsubmit.co/ojotobar@gmail.com" method="POST">
+                    <div class="form-row">
+                        <div class="col-lg-6">
+                            <input type="text" name="name" id="name" class="form-control bg-light mb-3" placeholder="Name" required/>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <input type="email" name="email" id="email" class="form-control bg-light mb-3" placeholder="Email" required/>
+                        </div>
+                    </div>
+                    <input type="hidden" name="_captcha" value="false" />
+                    <div class="form-row">
+                        <div class="col-lg-12">
+                            <textarea name="message" id="message" rows="5" class="form-control bg-light" placeholder="Message" required></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn3 my-4 font-weight-bold">SEND</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+

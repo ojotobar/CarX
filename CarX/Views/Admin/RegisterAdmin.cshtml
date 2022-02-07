@@ -1,0 +1,104 @@
+﻿@model CarX.Data.Dto.RegisterDto
+
+<form method="post" asp-controller="Admin" asp-action="RegisterAdmin" enctype="multipart/form-data">
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Sign Up</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                @* Keep empty *@
+            </div>
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label asp-for="FirstName"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label asp-for="LastName"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label asp-for="Email"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label asp-for="Phone"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input asp-for="Phone" class="form-control" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label asp-for="Password"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label asp-for="ConfirmPassword"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input asp-for="ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label asp-for="Photo"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input asp-for="Photo" class="form-control" />
+                        <span asp-validation-for="Photo" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-6 mb-1">
+                        <input type="submit" name="submit" value="Sign Up" class="btn btn-info w-100" />
+                    </div>
+                    <div class="col-md-6 mb-1">
+                        <a asp-controller="Admin" asp-action="Index" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i>Back</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                @* Keep empty *@
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

@@ -1,50 +1,106 @@
 ﻿@model IEnumerable<CarX.Models.Car>
 
-<div class="container p-3">
+@{ 
+    Pager pager = new Pager();
+
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+}
+
+<div class="container p-3 mb-5">
     <div class="row">
+
         <div class="col-md-4 p-3 border">
-
+            <input class="form-control" id="myInput" type="text" placeholder="Search..">
         </div>
+
         <div class="col-md-8 p-3 text-dark border">
-            @if (Model.Count() > 0)
-            {
-                @foreach (var car in Model)
+            <table class="table">
+                <tbody id="myTable">
+                    @foreach (var car in Model)
+                    {
+                        <tr>
+                            <td>
+
+                                <div class="row m-2" style="background: #fefefe; border: 2px solid #1861ac; border-radius: 5px">
+                                    <div class="col-sm-6 p-3">
+                                        <img src="@car.Image" style="width:100%" class="rounded" alt="@car.Make @car.Model">
+                                    </div>
+                                    <div class="col-sm-6 p-2">
+                                        <div class="font-weight-bolder pt-2 m-0">
+                                            @car.Year @car.Make @car.Model @car.Trim
+                                        </div>
+
+                                        <div class="text-muted d-flex justify-content-between m-0">
+                                            <p>@car.Transmission</p>
+                                            <p>@car.Engine</p>
+                                            <p>@car.DriveTrain</p>
+                                        </div>
+
+                                        <div class="d-flex text-muted justify-content-between m-0">
+                                            <p>Ext. <div style="border: 1px solid black;padding:10px;height:50%;border-radius:50%;background:@car.Color"></div></p>
+                                            <p>Int. <div style="border: 1px solid black;padding:10px;height:50%;border-radius:50%;background:@car.Interior"></div></p>
+                                            <small class="text-muted float-right">@String.Format("{0:N0}", car.Odometer) miles</small>
+                                        </div>
+
+                                        <div class="d-flex text-muted justify-content-between font-weight-bolder text-primary m-0">
+                                            <p>₦@String.Format("{0:N2}", car.Price)</p>
+                                            <a asp-controller="Home" asp-route-Id="@car.Id" asp-action="CheckOut" class="btn btn-info my-btn">
+                                                Buy Now
+                                            </a>
+                                            @*<button asp-controller="Home" asp-route-Id="@car.Id" asp-action="CheckOut" class="btn btn-info my-btn">Buy Now</button>*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            
+            <div class="container">
+
+                @if (pager.TotalPages > 0)
                 {
-                    <div class="row m-2" style="background: #fefefe; border: 2px solid #1861ac; border-radius: 5px">
-                        <div class="col-sm-6 p-3">
-                            <img src="@car.Image" style="width:100%" class="rounded" alt="@car.Make @car.Model">
-                        </div>
-                        <div class="col-sm-6 p-2">
-                            <div class="font-weight-bolder pt-2 m-0">
-                                @car.Year @car.Make @car.Model @car.Trim
-                            </div>
+                <ul class="pagination justify-content-end">
 
-                            <div class="text-muted d-flex justify-content-between m-0">
-                                <p>@car.Transmission</p>
-                                <p>@car.Engine</p>
-                                <p>@car.DriveTrain</p>
-                            </div>
+                    @if (pager.CurrentPage > 1)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-controller="Home" asp-action="Index" asp-route-pg="1">First</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" asp-controller="Home" asp-action="Index" asp-route-pg="@(pager.CurrentPage - 1)">Previous</a>
+                        </li>
+                    }
 
-                            <div class="d-flex text-muted justify-content-between m-0">
-                                <p>Ext. <div style="border: 1px solid black;padding:10px;height:50%;border-radius:50%;background:@car.Color"></div></p>
-                                <p>Int. <div style="border: 1px solid black;padding:10px;height:50%;border-radius:50%;background:@car.Interior"></div></p>
-                                <small class="text-muted float-right">@String.Format("{0:N0}", car.Odometer) miles</small>
-                            </div>
+                    @for (var pge = pager.StartPage; pge < pager.EndPage; pge++)
+                    {
+                        <li class="page-item @(pge == pager.CurrentPage ? "active" : "")">
+                            <a class="page-link" asp-controller="Home" asp-action="Index" asp-route-pg="@pge"> @pge  </a>
+                        </li>
+                    }
 
-                            <div class="d-flex text-muted justify-content-between font-weight-bolder text-primary m-0">
-                                <p>₦@String.Format("{0:N2}", car.Price)</p>
-                                <button class="btn btn-info my-btn">Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
+                    @if (pager.CurrentPage < pager.TotalPages)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-controller="Home" asp-action="Index" asp-route-pg="@(pager.CurrentPage + 1)">Next</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" asp-controller="Home" asp-action="Index" asp-route-pg="@(pager.TotalPages)">Last</a>
+                        </li>
+                    }
+                </ul>
                 }
-            }
-            else
-            {
-                <p>Nothing to show here!</p>
-            }
-        </div>
+            </div>
 
+        </div>
     </div>
     <a href="#" class="fixed-bottom mb-4 mx-4 d-flex justify-content-center align-items-center" style="background: #1861ac;border-radius:50%;height:50px;width:50px;color:#fefefe;text-decoration:none;font-size:30px;font-weight:900">
         <p>↑</p>

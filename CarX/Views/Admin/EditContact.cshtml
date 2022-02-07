@@ -1,0 +1,66 @@
+﻿@model CarX.Data.Dto.ContactToEditVM;
+
+
+<form method="post" asp-action="EditContact">
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Edit Contact Details</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                @* Keep empty *@
+            </div>
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label asp-for="Address"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input asp-for="Address" class="form-control" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label asp-for="Email"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <textarea asp-for="Email" class="form-control"></textarea>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label asp-for="Phone"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <textarea asp-for="Phone" class="form-control"></textarea>
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-6 mb-1">
+                        <input type="submit" name="submit" value="Update" class="btn btn-info w-100" />
+                    </div>
+                    <div class="col-md-6 mb-1">
+                        <a asp-action="Contact" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i>Back</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                @* Keep empty *@
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

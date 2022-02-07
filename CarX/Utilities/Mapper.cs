@@ -133,5 +133,26 @@ namespace CarX.Utilities
                 Image = imgUrl
             };
         }
+
+        public static CarToSellVM MapCarToSell(Car car)
+        {
+            return new CarToSellVM
+            {
+                Id = car.Id,
+                Make = car.Make,
+                Model = car.Make,
+                DriveTrain = car.DriveTrain,
+                Trim = car.Trim,
+                Odometer = car.Odometer,
+                Color = car.Color,
+                Interior = car.Interior,
+                Engine = car.Engine,
+                Year = car.Year,
+                Price = car.Price,
+                Transmission = car.Transmission,
+                Vin = car.Vin,
+                ImageUrl = car.Image
+            };
+        }
     }
 }
