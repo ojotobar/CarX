@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wL6Y7I/CszxcpRfabxTdIcOErABdR9wNEAr7l2vRFA6g7lj3DQTzfagu4SYYamIhmc7IaD/htiOOueHiAfpptQ==",
+  "dgSpecHash": "pl8Qty21wOxVvaLgmIK+ByN8b5NpWFm1C3Q8db78A93OXOiNuZNh0mNrNpvO/oE9Sp4nnXGLYJtHtuv8urFTKg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hp\\source\\repos\\CarX\\CarX\\CarX.csproj",
+  "projectFilePath": "C:\\CarX\\CarX\\CarX.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\cloudinarydotnet\\1.17.0\\cloudinarydotnet.1.17.0.nupkg.sha512",

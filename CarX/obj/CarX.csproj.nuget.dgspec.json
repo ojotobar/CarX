@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hp\\source\\repos\\CarX\\CarX\\CarX.csproj": {}
+    "C:\\CarX\\CarX\\CarX.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hp\\source\\repos\\CarX\\CarX\\CarX.csproj": {
+    "C:\\CarX\\CarX\\CarX.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\source\\repos\\CarX\\CarX\\CarX.csproj",
+        "projectUniqueName": "C:\\CarX\\CarX\\CarX.csproj",
         "projectName": "CarX",
-        "projectPath": "C:\\Users\\hp\\source\\repos\\CarX\\CarX\\CarX.csproj",
+        "projectPath": "C:\\CarX\\CarX\\CarX.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\source\\repos\\CarX\\CarX\\obj\\",
+        "outputPath": "C:\\CarX\\CarX\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",

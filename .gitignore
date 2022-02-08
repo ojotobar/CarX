@@ -1,1 +1,4 @@
 .vs/
+bin
+.DS_DStore
+obj
