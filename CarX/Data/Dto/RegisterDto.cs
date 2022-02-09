@@ -22,6 +22,7 @@ namespace CarX.Data.Dto
         public string Email { get; set; }
         [DisplayName("Phone Number")]
         public string Phone { get; set; }
+        public string ImageUrl { get; set; }
         public IFormFile Photo { get; set; }
         [Required]
         [DataType(DataType.Password)]

@@ -33,8 +33,8 @@ namespace CarX
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbcontext>(options =>
-                options.UseSqlServer(
+            services.AddDbContextPool<AppDbcontext>(options =>
+                options.UseSqlite(
                     Configuration.GetConnectionString("Default")));
 
             services.AddIdentity<AppUser, IdentityRole>(options =>
@@ -77,8 +77,8 @@ namespace CarX
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            //seed.Seed().Wait();
-            //seed.SeedUser().Wait();
+            seed.Seed().Wait();
+            seed.SeedUser().Wait();
         }
     }
 }

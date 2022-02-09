@@ -58,6 +58,7 @@ namespace CarX.Data
                         LastName = "Ojo",
                         Email = "ojotobatr@gmail.com",
                         Phone = "2348031234567",
+                        ImageUrl = "https://res.cloudinary.com/deotr/image/upload/v1644162715/og3r9bfjwrnj2mqpnam6.png",
                         Password = "P@ssword123",
                         ConfirmPassword = "P@ssword123"
                     },
@@ -67,6 +68,7 @@ namespace CarX.Data
                         LastName = "Dada",
                         Email = "temidada@gmail.com",
                         Phone = "2348031234567",
+                        ImageUrl = "https://res.cloudinary.com/enigmatr/image/upload/v1643308429/xfxjrfug1e2j5k5uscha.jpg",
                         Password = "P@ssword123",
                         ConfirmPassword = "P@ssword123"
                     },
@@ -76,27 +78,31 @@ namespace CarX.Data
                         LastName = "Faleye",
                         Email = "damolafal@gmail.com",
                         Phone = "2348031234567",
+                        ImageUrl = "https://res.cloudinary.com/deotr/image/upload/v1644174824/swdmosv7u5r6kxtqrhix.jpg",
                         Password = "P@ssword123",
                         ConfirmPassword = "P@ssword123"
                     },
                     new RegisterDto
                     {
-                        FirstName = "Hannah",
-                        LastName = "Eseyin",
-                        Email = "hannahesy@gmail.com",
+                        FirstName = "Amara",
+                        LastName = "Patrick",
+                        Email = "amarapat@gmail.com",
                         Phone = "2348031234567",
+                        ImageUrl = "https://res.cloudinary.com/enigmatr/image/upload/v1643627050/l7jhxrqpmdc8o3hqs8lu.jpg",
                         Password = "P@ssword123",
                         ConfirmPassword = "P@ssword123"
                     },
                     new RegisterDto
                     {
-                        FirstName = "Suleman",
-                        LastName = "Sanni",
-                        Email = "sule.sani@gmail.com",
+                        FirstName = "Tobi",
+                        LastName = "Akinola",
+                        Email = "tobiak@gmail.com",
                         Phone = "2348031234567",
+                        ImageUrl = "https://res.cloudinary.com/enigmatr/image/upload/v1644161637/arwbdqlhw1i0o2eqqdnq.jpg",
                         Password = "P@ssword123",
                         ConfirmPassword = "P@ssword123"
                     }
+
                 };
 
             ctx.Database.EnsureCreated();
@@ -120,7 +126,7 @@ namespace CarX.Data
                     FirstName = u.FirstName,
                     LastName = u.LastName,
                     PhoneNumber = u.Phone,
-                    ImageUrl = "https://ssl.gstatic.com/s2/profiles/images/silhouette200.png",
+                    ImageUrl = u.ImageUrl,
                     UserName = u.Email
                 };
                 var res = await userMgr.CreateAsync(user, u.Password);
