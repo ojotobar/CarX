@@ -77,8 +77,8 @@ namespace CarX
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            seed.Seed().Wait();
-            seed.SeedUser().Wait();
+            //seed.Seed().Wait();
+            //seed.SeedUser().Wait();
         }
     }
 }
