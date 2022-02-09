@@ -34,7 +34,7 @@ namespace CarX
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContextPool<AppDbcontext>(options =>
-                options.UseSqlite(
+                options.UseSqlServer(
                     Configuration.GetConnectionString("Default")));
 
             services.AddIdentity<AppUser, IdentityRole>(options =>
@@ -77,8 +77,8 @@ namespace CarX
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            //seed.Seed().Wait();
-            //seed.SeedUser().Wait();
+            seed.Seed().Wait();
+            seed.SeedUser().Wait();
         }
     }
 }
