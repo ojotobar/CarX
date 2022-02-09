@@ -372,3 +372,13 @@ C:\CarX\CarX\obj\Debug\net5.0\CarX.dll
 C:\CarX\CarX\obj\Debug\net5.0\ref\CarX.dll
 C:\CarX\CarX\obj\Debug\net5.0\CarX.pdb
 C:\CarX\CarX\obj\Debug\net5.0\CarX.genruntimeconfig.cache
+C:\CarX\CarX\bin\Debug\net5.0\Azure.Core.dll
+C:\CarX\CarX\bin\Debug\net5.0\Azure.Identity.dll
+C:\CarX\CarX\bin\Debug\net5.0\Azure.Security.KeyVault.Certificates.dll
+C:\CarX\CarX\bin\Debug\net5.0\Azure.Security.KeyVault.Secrets.dll
+C:\CarX\CarX\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+C:\CarX\CarX\bin\Debug\net5.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\CarX\CarX\bin\Debug\net5.0\Microsoft.Identity.Web.dll
+C:\CarX\CarX\bin\Debug\net5.0\Microsoft.Identity.Web.UI.Views.dll
+C:\CarX\CarX\bin\Debug\net5.0\Microsoft.Identity.Web.UI.dll
+C:\CarX\CarX\obj\Debug\net5.0\CarX.MvcApplicationPartsAssemblyInfo.cs

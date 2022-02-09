@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA98a436zf6kaW9etw161vQwAAAAACAAAAAAAQZgAAAAEAACAAAACUGf7inFk+MYpmOygnco10N+Quxhqy8cxB88sSSzgGhgAAAAAOgAAAAAIAACAAAADd2Xu2cVrpdil6nc4yhpU6zVZoWOP+Gvwym03ixwRW14AAAABeALD3T0PhdkisGCHc03Z06vJd8fMDJ062GZP+dHnxU08/1Fqet9/dkv1yLSIdW9aKct1oqE9wWvZherB/5QEFkofbNAYMNBYn8uTSwXHQ4e2BhrFi0k1VArGbQAzgSMdLX3qeXJqzZ4LfIntnBox3mQ9o8MvQhRksGNwWK/laXEAAAAApfgttJeW2o8rg95RMh4MIOR6BmcIu+dgo/JCR+HOgQ07nYBFPPRGiSjD3EKOoNs3cEr7wm/V47ouLbPq9+oMm</EncryptedPassword>
+    <History>True|2022-02-09T01:54:13.8506218Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="Default">
+      <Value>Data Source=tcp:carx2.database.windows.net,1433%3bInitial Catalog=CarX_2_db%3bUser Id=adminuser%40carx2%3bPassword=pass%40otr174</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
