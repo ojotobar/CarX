@@ -29,7 +29,7 @@ namespace CarX.Data
                 ctx.Database.EnsureCreated();
                 if (!ctx.Car.Any())
                 {
-                    var data = System.IO.File.ReadAllText(@"carX.json");
+                    var data = System.IO.File.ReadAllText(@"data\\carX.json");
                     var serializedData = JsonConvert.DeserializeObject<List<Car>>(data);
                     foreach (var car in serializedData)
                     {
