@@ -28,7 +28,7 @@ namespace CarX.Data
             {
                 ctx.Database.EnsureCreated();
 
-                var data = System.IO.File.ReadAllText(@"C:\Users\hp\source\repos\CarX\CarX\Data\carX.json");
+                var data = System.IO.File.ReadAllText(@"carX.json");
                 var serializedData = JsonConvert.DeserializeObject<List<Car>>(data);
                 ctx.SaveChanges();
 
