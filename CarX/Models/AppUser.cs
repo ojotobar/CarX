@@ -19,7 +19,10 @@ namespace CarX.Models
         [Column(TypeName = "nvarchar(50)")]
         [DisplayName("Last Name")]
         public string LastName { get; set; }
+        [Required]
         public string ImageUrl { get; set; }
+        [Required]
+        public string PublicId { get; set; } = "empty";
         public string SignUpDate { get; set; } = DateTime.Now.ToLongTimeString();
     }
 }

@@ -35,5 +35,7 @@ namespace CarX.Models
         public string Vin { get; set; }//vin
         [Required]
         public string Image { get; set; }//img
+        [Required]
+        public string PublicId { get; set; } = "Empty";
     }
 }

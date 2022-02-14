@@ -9,8 +9,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using PagedList.Mvc;
-using PagedList;
 
 namespace CarX.Controllers
 {

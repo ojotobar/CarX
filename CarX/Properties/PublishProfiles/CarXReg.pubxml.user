@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <History>True|2022-02-09T23:24:05.1527590Z;True|2022-02-09T22:27:04.6932517+01:00;False|2022-02-09T22:20:43.9310703+01:00;False|2022-02-09T22:19:41.0762573+01:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="Default">
+      <Value>Data Source=tcp:carxdbserver.database.windows.net,1433%3bInitial Catalog=CarX_db%3bUser Id=adminuser%40carxdbserver%3bPassword=P%40ssword123</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="Kestrel:Certificates:Development:Password">
+      <Value>Data Source=tcp:carxdbserver.database.windows.net,1433%3bInitial Catalog=CarX_db%3bUser Id=adminuser%40carxdbserver%3bPassword=P%40ssword123</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="CarX.Data.AppDbcontext">
+      <Value>Data Source=tcp:carxdbserver.database.windows.net,1433%3bInitial Catalog=CarX_db%3bUser Id=adminuser%40carxdbserver%3bPassword=P%40ssword123</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

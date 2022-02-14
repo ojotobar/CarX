@@ -15,5 +15,7 @@ namespace CarX.Models
         public string Details { get; set; }
         [Required]
         public string ImgUrl { get; set; }
+        [Required]
+        public string PublicId { get; set; } = "Empty";
     }
 }

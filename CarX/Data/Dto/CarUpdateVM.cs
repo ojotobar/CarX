@@ -20,5 +20,6 @@ namespace CarX.Data.Dto
         public float Price { get; set; }//price
         public string Vin { get; set; }//vin
         public string ImageUrl { get; set; }//img
+        public string PublicId { get; set; }
     }
 }

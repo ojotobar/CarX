@@ -11,8 +11,8 @@
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>False</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_DbContextTypeFullName>CarX.Data.AppDbcontext</WebStackScaffolding_DbContextTypeFullName>
-    <NameOfLastUsedPublishProfile>C:\CarX\CarX\Properties\PublishProfiles\CarX2 - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
-    <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>C:\CarX\CarX\Properties\PublishProfiles\Car-X - Web Deploy1.pubxml</NameOfLastUsedPublishProfile>
+    <ActiveDebugProfile>CarX</ActiveDebugProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
