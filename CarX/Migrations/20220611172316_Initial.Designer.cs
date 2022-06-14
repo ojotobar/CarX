@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarX.Migrations
 {
     [DbContext(typeof(AppDbcontext))]
-    [Migration("20220214115528_includedPublicId")]
-    partial class includedPublicId
+    [Migration("20220611172316_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
