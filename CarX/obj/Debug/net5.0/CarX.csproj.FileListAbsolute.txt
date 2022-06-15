@@ -613,7 +613,9 @@ C:\Projects\CarX\CarX\obj\Debug\net5.0\CarX.RazorTargetAssemblyInfo.cs
 C:\Projects\CarX\CarX\obj\Debug\net5.0\CarX.Views.pdb
 C:\Projects\CarX\CarX\obj\Debug\net5.0\CarX.csproj.CopyComplete
 C:\Projects\CarX\CarX\obj\Debug\net5.0\CarX.dll
-C:\Projects\CarX\CarX\obj\Debug\net5.0\ref\CarX.dll
+C:\Projects\CarX\CarX\obj\Debug\net5.0\refint\CarX.dll
 C:\Projects\CarX\CarX\obj\Debug\net5.0\CarX.pdb
 C:\Projects\CarX\CarX\obj\Debug\net5.0\CarX.genruntimeconfig.cache
-C:\Projects\CarX\CarX\obj\Debug\net5.0\refint\CarX.dll
+C:\Projects\CarX\CarX\obj\Debug\net5.0\ref\CarX.dll
+C:\Projects\CarX\CarX\bin\Debug\net5.0\appsettings.Production.json
+C:\Projects\CarX\CarX\bin\Debug\net5.0\appsettings.Production.Development.json

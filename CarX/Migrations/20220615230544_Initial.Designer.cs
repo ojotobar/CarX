@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarX.Migrations
 {
     [DbContext(typeof(AppDbcontext))]
-    [Migration("20220611172316_Initial")]
+    [Migration("20220615230544_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
